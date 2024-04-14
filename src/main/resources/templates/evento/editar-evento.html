@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br" layout:decorate="~{template.html}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://thymeleaf.org">
+<head>
+    <title>Title</title>
+</head>
+<body style="background-color: #6a9eda; color: white;">
+<h1>Editar</h1>
+<div layout:fragment="conteudo">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Alteração de Evento</h2>
+                <div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <span th:text="${mensagem}"></span>
+                </div>
+
+                <form action="#" th:action="@{/eventos/{id}(id=${evento.id})}" th:object="${evento}" method="post">
+                    <input type="hidden" name="_method" value="put">
+                    <div class="row mb-3">
+                        <label for="nome" class="col-sm-1 col-form-label">Nome:</label>
+                        <div class="col-sm-5">
+                            <input id="nome" class="form-control" type="text" th:field="*{nome}" />
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="data" class="col-sm-1 col-form-label">Data:</label>
+                        <div class="col-sm-3">
+                            <input id="data" class="form-control" type="date" th:field="*{data}">
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('data')}" th:errors="*{data}"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label for="data" class="col-sm-1 col-form-label">Url:</label>
+                        <div class="col-sm-3">
+                            <input id="url" class="form-control" type="text" th:field="*{url}">
+                        </div>
+                        <div class="col-sm-5">
+                            <span class="mensagem" th:if="${#fields.hasErrors('url')}" th:errors="*{url}"></span>
+                        </div>
+                    </div>
+
+
+                    <div class="form-row">
+                        <div class="row mb-3">
+                            <label  class="col-sm-1 col-form-label">Cidade:</label>
+                            <div class="col-sm-3">
+                                <select th:field="*{cidade}" id="cidade" name="cidade"
+                                        class="chosen-select form-control"  data-placehold="cidade">
+                                    <option th:each="cidade : ${cidades}"
+                                            th:value="${cidade.id}"
+                                            th:text="${cidade.nome}">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="col-sm-5">
+								<span class="mensagem" th:errors="*{cidade}"
+                                      th:if="${#fields.hasErrors('cidade')}"></span>
+                            </div>
+                        </div>
+                    </div>
+                  <input class="btn btn-primary" type="submit" value="Alterar" />
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
