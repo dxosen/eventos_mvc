@@ -54,7 +54,8 @@
          <img align="center" alt="event crud home screen" src="https://github.com/user-attachments/assets/70a2a858-cc50-458c-b958-7f9689d0e65f">
         <br>
         <br>
-         <img align="center" alt="event crud home screen" src="https://github.com/user-attachments/assets/d2d7825e-829a-49b1-a98d-e2326560c0f6">
+    
+  <img align="center" alt="event crud home screen" src="https://github.com/user-attachments/assets/f851e8ab-93ee-4a04-bd81-11ff162163d5">
         <br>
         <br>
 
